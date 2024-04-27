@@ -11,7 +11,7 @@ data class Partner(
     val email: String,
     val status: String,
     val contactNo: String,
-    val openingBalance: Double,
+    val openingBalance: String,
     val address: String,
     val repName: String,
     val repContact: String,
