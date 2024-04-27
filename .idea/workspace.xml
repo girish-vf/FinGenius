@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76d2c278-befd-4778-a311-effeab8d3a43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Database.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Invoice.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Ledger.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Product.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/backend/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/backend/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/models/Invoice.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/models/Ledger.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/models/Partner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Partner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/models/Product.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/models/Transaction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/models/Transaction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/educative/route/PartnerRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/kotlin/io/educative/route/PartnerRoutes.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +114,7 @@
       <updated>1713569949512</updated>
       <workItem from="1713569950531" duration="2302000" />
       <workItem from="1714165274178" duration="1995000" />
-      <workItem from="1714234907079" duration="1245000" />
+      <workItem from="1714234907079" duration="1734000" />
     </task>
     <servers />
   </component>
