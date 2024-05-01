@@ -1,15 +1,10 @@
 package io.educative.routes
 
-import io.educative.models.Partner
-import io.educative.models.Invoice
-import io.educative.models.LedgerItem
-import io.educative.models.LedgerJson
+import io.educative.models.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.educative.models.Database
-import io.educative.models.Transaction
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.time.LocalDate
@@ -38,11 +33,11 @@ fun Route.ledgerRoutes(){
                 val partner = partnersCollection.findOneById(partnerId)
                 val allInvoices = invoicesCollection.find(Invoice::partnerId eq partnerId).toList()
                 val filteredInvoices = allInvoices.filter {
-                        invoice ->
+                        invoice:Invoice ->
                     val invoiceDate = dateFormat.parse(invoice.invoiceDate)
                     invoiceDate in startDate..endDate
                 }
-                val invoices = filteredInvoices.map { invoice ->
+                val invoices = filteredInvoices.map { invoice:Invoice ->
                     LedgerItem(
                         date = invoice.invoiceDate,
                         instrumentNo = invoice.invoiceNo,
@@ -56,13 +51,13 @@ fun Route.ledgerRoutes(){
                 }
                 // Fetch all transactions
                 val allTransactions = transactionsCollection.find(or(Transaction::paymentTo eq partnerId, Transaction::receiptFrom eq partnerId)).toList()
-                val filteredTransactions = allTransactions.filter { transaction ->
+                val filteredTransactions = allTransactions.filter { transaction: Transaction ->
                     val date = dateFormat.parse(transaction.date)
                     date in startDate..endDate
                 }
 
                 // Map all transactions to ledger items
-                val transactions = filteredTransactions.map { transaction ->
+                val transactions = filteredTransactions.map { transaction: Transaction ->
                     val (description, debit, credit) = when (transaction.type) {
                         "BRV", "CRV" -> Triple("Receipt", BigDecimal.ZERO, transaction.amount)
                         "BPV", "CPV" -> Triple("Payment", transaction.amount, BigDecimal.ZERO)
@@ -82,7 +77,7 @@ fun Route.ledgerRoutes(){
                 }
 
                 // Combine the transformed records from both collections into a single list
-                val ledgerItems = (invoices + transactions).sortedBy { LocalDate.parse(it.date) }
+                val ledgerItems: List<LedgerItem> = (invoices + transactions).sortedBy { LocalDate.parse(it.date) }
                 // Respond with the list of invoices with their corresponding partners
                 val jsonResponse = Json.encodeToString(LedgerJson(partner, ledgerItems))
                 call.respond(HttpStatusCode.OK, jsonResponse)

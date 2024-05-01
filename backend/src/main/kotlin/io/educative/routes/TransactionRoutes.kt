@@ -1,5 +1,6 @@
 package io.educative.routes
 
+import io.educative.models.Database
 import io.educative.models.Partner
 import io.educative.models.Transaction
 import io.educative.models.TransactionJson
@@ -10,7 +11,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.litote.kmongo.eq
 import org.litote.kmongo.or
-import io.educative.models.Database
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -40,7 +40,7 @@ fun Route.transactionRoutes(){
         get {
             val type = call.request.queryParameters["type"] ?: return@get call.respond(HttpStatusCode.BadRequest, "Missing Type")
             try {
-                val transactions = when(type){
+                val transactions: List<Transaction> = when(type){
                     "payment" -> {
                         transactionsCollection.find(
                             or(
@@ -62,6 +62,7 @@ fun Route.transactionRoutes(){
                     }
                 }
                 val responseList = mutableListOf<TransactionJson>()
+
                 for (transaction in transactions){
                     val partner = when (type){
                         "payment" -> {

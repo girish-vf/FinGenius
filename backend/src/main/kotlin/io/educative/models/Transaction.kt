@@ -1,5 +1,5 @@
 package io.educative.models
-
+import kotlinx.serialization.Serializable
 @Serializable
 data class Transaction(
     val _id: String? = null,

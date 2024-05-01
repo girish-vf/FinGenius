@@ -1,5 +1,6 @@
 package io.educative.routes
 
+import io.educative.models.Database
 import io.educative.models.Partner
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -8,7 +9,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.litote.kmongo.eq
 import org.litote.kmongo.and
-import io.educative.models.Database
 
 fun Route.partnerRoutes(){
     val database = Database()
